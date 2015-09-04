@@ -2,7 +2,9 @@
 
 PACKAGE=$1
 
-source wv-vars
+source "$(dirname $0)/wv-vars"
 
 cp $PACKAGE $PUBDIR
-dpkg-scanpackages $PUBDIR /dev/null | gzip -9c > "$PUBDIR/Packages.gz"
+
+cd $PUBDIR
+dpkg-scanpackages $CONTEXT /dev/null | gzip -9c > "$PUBDIR/Packages.gz"

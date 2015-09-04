@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source wv-vars
+source "$(dirname $0)/wv-vars"
 
 APPNAME=$1
 GITHUBURL=$2

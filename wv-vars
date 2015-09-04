@@ -5,6 +5,11 @@ ENVDIR="env"
 SRCDIR="src"
 BUILDDIR="build"
 PUBDIR="/var/www/repo"
+CONTEXT="packages/"
+
+function get_appsdir {
+    echo "$APPSDIR"
+}
 
 function get_appdir {
     echo "$APPSDIR/$1"
