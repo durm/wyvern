@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PACKAGE=$1
+
+source wv-vars
+
+cp $PACKAGE $PUBDIR
+dpkg-scanpackages $PUBDIR /dev/null | gzip -9c > "$PUBDIR/Packages.gz"

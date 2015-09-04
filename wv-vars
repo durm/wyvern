@@ -3,6 +3,8 @@
 APPSDIR="/opt/apps"
 ENVDIR="env"
 SRCDIR="src"
+BUILDDIR="build"
+PUBDIR="/var/www/repo"
 
 function get_appdir {
     echo "$APPSDIR/$1"
@@ -14,4 +16,37 @@ function get_envdir {
 
 function get_srcdir {
     echo "$APPSDIR/$1/$SRCDIR"
+}
+
+function get_builddir {
+    echo "$APPSDIR/$1/$BUILDDIR"
+}
+
+function get_buildroot {
+    BD=`get_builddir $1`
+    echo "$BD/$1"
+}
+
+function get_debiandir {
+    BR=`get_buildroot $1`
+    echo "$BR/DEBIAN"
+}
+
+function get_controlfile {
+    BR=`get_buildroot $1`
+    echo "$BR/DEBIAN/control"
+}
+
+function get_destdir {
+    BR=`get_buildroot $1`
+    echo "$BR/usr/local/share/$1"
+}
+
+function get_bindir {
+    BR=`get_buildroot $1`
+    echo "$BR/usr/bin"
+}
+
+function get_datetime {
+    date +"%d.%m.%y-%H.%M"
 }

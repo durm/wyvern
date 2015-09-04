@@ -1,0 +1,51 @@
+#!/bin/bash
+
+source wv-vars
+
+echo ">>> CREATING DEB CONTROL FILE FOR $APPNAME"
+
+APPNAME=$1
+MAINTAINER="postscriptum21@list.ru"
+VERSION=`get_datetime`
+
+function get_package {
+    echo "Package: $1"
+}
+
+function get_version {
+    echo "Version: $VERSION"
+}
+
+function get_maintainer {
+    echo "Maintainer: $MAINTAINER"
+}
+
+function get_architecture {
+    echo "Architecture: all"
+}
+
+function get_section {
+    read -p "Section (devel, shell, web, games): " section
+    echo "Section: $section"
+}
+
+function get_desc {
+    read -p "Description: " desc
+    echo "Description: $desc"
+}
+
+CONTROLFILE=`get_controlfile $APPNAME`
+
+echo `get_package $APPNAME` > $CONTROLFILE
+echo `get_version` >> $CONTROLFILE
+echo `get_maintainer` >> $CONTROLFILE
+echo `get_architecture` >> $CONTROLFILE
+echo `get_section` >> $CONTROLFILE
+echo `get_desc` >> $CONTROLFILE
+
+BR=`get_buildroot $APPNAME`
+
+dpkg-deb --build `get_buildroot $APPNAME`
+mv "$BR.deb" "$BR-$VERSION-all.deb"
+
+echo ">>> DEB CONTROL FILE FOR $APPNAME WAS CREATED"

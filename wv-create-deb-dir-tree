@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source wv-vars
+
+APPNAME=$1
+
+echo ">>> CREATING DEB DIRECTORT TREE FOR $APPNAME"
+
+mkdir -p `get_debiandir $APPNAME` `get_destdir $APPNAME` `get_bindir $APPNAME`
+
+echo ">>> DEB DIRECTORT TREE FOR $APPNAME WAS CREATED"
