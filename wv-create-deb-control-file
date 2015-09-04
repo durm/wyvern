@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname $0)/wv-vars"
+source "$(dirname $0)/wv-fns"
 
 echo ">>> CREATING DEB CONTROL FILE FOR $APPNAME"
 
