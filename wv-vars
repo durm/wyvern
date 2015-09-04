@@ -1,0 +1,17 @@
+#!/bin/bash
+
+APPSDIR="/opt/apps"
+ENVDIR="env"
+SRCDIR="src"
+
+function get_appdir {
+    echo "$APPSDIR/$1"
+}
+
+function get_envdir {
+    echo "$APPSDIR/$1/$ENVDIR"
+}
+
+function get_srcdir {
+    echo "$APPSDIR/$1/$SRCDIR"
+}

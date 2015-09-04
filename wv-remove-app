@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source wv-vars
+
+APPNAME=$1
+
+echo ">>> REMOVING APPLICATION $APPNAME"
+
+rm -rf `get_appdir $APPNAME`
+
+echo ">>> APPLICATION $APPNAME WAS REMOVED"

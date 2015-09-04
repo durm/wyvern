@@ -1,0 +1,29 @@
+#!/bin/bash
+
+source wv-vars
+
+APPNAME=$1
+GITHUBURL=$2
+NEEDENV=$3
+
+
+echo ">>> CREATING APPLICATION $APPNAME"
+
+APPDIR=`get_appdir $APPNAME`
+
+if [ -d "$APPDIR" ]; then
+    echo "Director $APPDIR exists!"
+    exit
+fi
+
+mkdir $APPDIR
+cd $APPDIR
+
+git clone $GITHUBURL
+mv $APPNAME src
+
+if [ "$NEEDENV" == "1" ]; then 
+    virtualenv --no-site-packages --python=python3 $ENVDIR
+fi
+
+echo ">>> APPLICATION $APPNAME WAS CREARTED"

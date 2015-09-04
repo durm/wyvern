@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source wv-vars
+
+echo ">>> APPLICATION LIST"
+
+ls $APPSDIR 
