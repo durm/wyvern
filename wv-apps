@@ -4,4 +4,4 @@ source wv-vars
 
 echo ">>> APPLICATION LIST"
 
-ls $APPSDIR 
+ls `echo $APPSDIR`
