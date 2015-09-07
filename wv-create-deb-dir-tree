@@ -4,8 +4,8 @@ source "$(dirname $0)/wv-fns"
 
 APPNAME=$1
 
-echo ">>> CREATING DEB DIRECTORT TREE FOR $APPNAME"
+echo ">>> CREATING DEB DIRECTORY TREE FOR $APPNAME"
 
 mkdir -p `get_debiandir $APPNAME` `get_destdir $APPNAME` `get_bindir $APPNAME`
 
-echo ">>> DEB DIRECTORT TREE FOR $APPNAME WAS CREATED"
+echo ">>> DEB DIRECTORY TREE FOR $APPNAME WAS CREATED"

@@ -26,4 +26,4 @@ if [ "$NEEDENV" == "1" ]; then
     virtualenv --no-site-packages --python=python3 $ENVDIR
 fi
 
-echo ">>> APPLICATION $APPNAME WAS CREARTED"
+echo ">>> APPLICATION $APPNAME WAS CREATED"

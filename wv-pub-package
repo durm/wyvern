@@ -4,7 +4,10 @@ PACKAGE=$1
 
 source "$(dirname $0)/wv-fns"
 
+echo ">>> PUB PACKAGE $PACKAGE"
+
 cp $PACKAGE $PUBDIR
 
-cd $PUBDIR
-dpkg-scanpackages $CONTEXT /dev/null | gzip -9c > "$PUBDIR/Packages.gz"
+wv-generate-repo-packages
+
+echo ">>> $PACKAGE WAS PUBED"

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source "$(dirname $0)/wv-fns"
+
+APPNAME=$1
+
+echo ">>> UPDATING APPLICATION $APPNAME"
+
+SRVDIR=`get_srcdir $APPNAME`
+
+cd $SRCDIR
+
+git pull
+
+echo ">>> APPLICATION $APPNAME WAS UPDATED"

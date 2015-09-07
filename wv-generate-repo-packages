@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source "$(dirname $0)/wv-fns"
+
+echo ">>> GENERATING Packages"
+
+cd $PUBDIR
+dpkg-scanpackages $CONTEXT /dev/null | gzip -9c > "$PUBDIR/Packages.gz"
+
+echo ">>> Packages WAS GENERATED"
