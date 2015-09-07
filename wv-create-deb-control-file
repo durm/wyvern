@@ -6,7 +6,8 @@ echo ">>> CREATING DEB CONTROL FILE FOR $APPNAME"
 
 APPNAME=$1
 MAINTAINER="postscriptum21@list.ru"
-VERSION=`get_datetime`
+VERSION=$2
+CONTROLFILE=$3
 
 function get_package {
     echo "Package: $1"
@@ -34,18 +35,11 @@ function get_desc {
     echo "Description: $desc"
 }
 
-CONTROLFILE=`get_controlfile $APPNAME`
-
 echo `get_package $APPNAME` > $CONTROLFILE
 echo `get_version` >> $CONTROLFILE
 echo `get_maintainer` >> $CONTROLFILE
 echo `get_architecture` >> $CONTROLFILE
 echo `get_section` >> $CONTROLFILE
 echo `get_desc` >> $CONTROLFILE
-
-BR=`get_buildroot $APPNAME`
-
-dpkg-deb --build `get_buildroot $APPNAME`
-mv "$BR.deb" "$BR-$VERSION-all.deb"
 
 echo ">>> DEB CONTROL FILE FOR $APPNAME WAS CREATED"
