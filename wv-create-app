@@ -22,8 +22,14 @@ cd $APPDIR
 git clone $GITHUBURL
 mv $APPNAME src
 
+PIP="$ENVDIR/bin/pip"
+REQFILE="src/requirements"
+
 if [ "$NEEDENV" == "1" ]; then 
     virtualenv --no-site-packages --python=python3 $ENVDIR
+    if [ -e $REQFILE ]; then 
+        $PIP install $REQFILE
+    fi
 fi
 
 echo ">>> APPLICATION $APPNAME WAS CREATED"
